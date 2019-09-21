@@ -1,5 +1,5 @@
 # rawJavascriptSlot
 
-ES6 (class, arroe function, )
-MVP
-FLOCSS
+- ES6 (class, arrow function)
+- MVP
+- FLOCSS

@@ -1,0 +1,34 @@
+.slot {
+    width: 90%;
+    flex-basis: 90%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 3;
+}
+
+.slot__reals {
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 4;
+}
+
+.slot__reals__reel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-grow: 8;
+}
+
+.slot__reals__real__image {
+    width: 100%;
+    border: double 1px;
+}
+
+.slot__reals__real__button {
+
+}
+
+.slot__start_button {
+    flex-grow: 1;
+}

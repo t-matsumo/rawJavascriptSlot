@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/foundation/html5reset-1.6.1.css">
+    <link rel="stylesheet" href="./css/foundation/background.css">
+    <link rel="stylesheet" href="./css/object/project/slot.css">
+</head>
+
+<body>
+    <div class="slot">
+        <div class="slot__reals">
+            <div class="slot__reals__reel">
+                <img id="image_0" class="slot__reals__real__image" src="./images/slot1.jpg" />
+                <button id="stop_button_0" class="slot__reals__real__button" type="button" onclick="slotView.onStop(0)" disabled>STOP!</button>
+            </div>
+
+            <div class="slot__reals__reel">
+                <img id="image_1" class="slot__reals__real__image" src="./images/slot1.jpg" />
+                <button id="stop_button_1" class="slot__reals__real__button" type="button" onclick="slotView.onStop(1)" disabled>STOP!</button>
+            </div>
+
+            <div class="slot__reals__reel">
+                <img id="image_2" class="slot__reals__real__image" src="./images/slot1.jpg" />
+                <button id="stop_button_2" class="slot__reals__real__button" type="button" onclick="slotView.onStop(2)" disabled>STOP!</button>
+            </div>
+        </div>
+
+        <button id="start_button" class="slot__start_button" type="button" onclick="slotView.onStart()">START!</button>
+    </div>
+    <script src="./js/Slot.js"></script>
+</body>
+
+</html>

@@ -1,6 +1,6 @@
 # rawJavascriptSlot
 
-<img src="./screenshot/screenshot.png" />
+<img src="./screenshot/screen.gif"/>
 
 - ES6 (class, arrow function)
 - MVP

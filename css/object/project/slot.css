@@ -1,34 +1,30 @@
 .slot {
-    width: 90%;
-    flex-basis: 90%;
-    align-self: center;
+    margin: 8px 8px;
     display: flex;
     flex-direction: column;
-    flex-grow: 3;
 }
 
 .slot__reals {
     display: flex;
-    justify-content: space-around;
-    flex-grow: 4;
+    margin: 54px 0;
 }
 
 .slot__reals__reel {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    flex-grow: 8;
 }
 
 .slot__reals__real__image {
     width: 100%;
-    border: double 1px;
+    margin: 8px 8px;
 }
 
 .slot__reals__real__button {
-
+    margin: 8px 8px;
+    flex-basis: 50px;
 }
 
 .slot__start_button {
-    flex-grow: 1;
+    margin: 8px 8px;
+    flex-basis: 70px;
 }

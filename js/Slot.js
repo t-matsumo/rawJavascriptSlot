@@ -77,7 +77,7 @@ class SlotView {
 
     update(realId, imageId) {
         this.images[realId].src = `images/slot${imageId}.jpg`;
-        const disableButtons = this.stopButtons.filter((button) => {return button.disabled});
+        const disableButtons = this.stopButtons.filter((button) => button.disabled);
         this.startButton.disabled = (disableButtons.length != 3);
     }
 }

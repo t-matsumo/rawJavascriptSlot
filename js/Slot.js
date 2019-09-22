@@ -1,57 +1,12 @@
 const numberOfReal = 3;
 const numberOfImage = 5;
 
-class SlotModel {
-    imageId = [];
-
-    constructor() {
-        for (let i = 0; i < numberOfReal; i++) {
-            this.imageId[i] = i;
-        }
-    }
-
-    getImageIdFor(realId) {
-        return this.imageId[realId];
-    }
-
-    next(realId) {
-        const currentId = this.getImageIdFor(realId);
-        this.imageId[realId] = (currentId + 1) % numberOfImage;
-    }
-}
-
-class SlotPresenter {
-    view;
-    model;
-    intervalIds = []; // 0, 1, 2 -> left, center, right
-
-    constructor(view) {
-        this.view = view;
-        this.model = new SlotModel();
-    }
-
-    onStart() {
-        for (let i = 0; i < numberOfReal; i++) {
-            this.intervalIds[i] = setInterval((realId) => {
-                this.model.next(realId);
-                const imageId = this.model.getImageIdFor(realId);
-                this.view.update(realId, imageId);
-            }, 100, i);
-        }
-    }
-
-    onStop(realId) {
-        clearInterval(this.intervalIds[realId]);
-        const imageId = this.model.getImageIdFor(realId);
-        this.view.update(realId, imageId);
-    }
-}
-
 class SlotView {
     startButton;
     stopButtons = []; // 0, 1, 2 -> left, center, right
     images = []; // 0, 1, 2 -> left, center, right
-    presenter;
+    intervalIds = []; // 0, 1, 2 -> left, center, right
+    imageId = [];
 
     constructor() {
         this.startButton = document.getElementById('start_button');
@@ -59,20 +14,31 @@ class SlotView {
         for (let i = 0; i < numberOfReal; i++) {
             this.stopButtons[i] = document.getElementById(`stop_button_${i}`);;
             this.images[i] = document.getElementById(`image_${i}`);
+            this.imageId[i] = i;
         }
-
-        this.presenter = new SlotPresenter(this);
     }
 
     onStart() {
         this.startButton.disabled = true;
         this.stopButtons.forEach((button) => button.disabled = false);
-        this.presenter.onStart();
+
+        for (let i = 0; i < numberOfReal; i++) {
+            this.intervalIds[i] = setInterval((realId) => {
+                const currentId = this.imageId[realId];
+                const imageId = (currentId + 1) % numberOfImage;
+
+                this.imageId[realId] = imageId;
+                this.update(realId, imageId);
+            }, 100, i);
+        }
     }
 
     onStop(realId) {
         this.stopButtons[realId].disabled = true;
-        this.presenter.onStop(realId);
+        clearInterval(this.intervalIds[realId]);
+
+        const imageId = this.imageId[realId];
+        this.update(realId, imageId);
     }
 
     update(realId, imageId) {

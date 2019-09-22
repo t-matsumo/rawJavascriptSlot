@@ -6,3 +6,6 @@
 - MVP
 - FLOCSS(bem only?)
 - flexbox
+
+# monolithic ver
+See monolithic branch.
